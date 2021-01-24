@@ -55,5 +55,8 @@ $ curl -X POST "127.0.0.1:8080/jobs" -H "Content-Type: text/plain" --data "*/10 
 20:35:30.002 [INFO ] Triggered! Cron(d9ad67ee-03aa-4321-9d51-4952dfd14ad0,*/10 * * ? * *)
 ```
 
-We scheduled it with "*/10 * * ? * *" so it triggers every ten seconds. The logs reflect that.
-You can try it out with other cron expressions, so you can imagine real work being done in production.
+Our job had `*/10 * * ? * *` so it triggers every ten seconds. 
+You can try out with other cron expressions, using hours, days, weeks, so you can imagine real work being done in production.
+
+Combine this code with [Akka Persistence](https://github.com/amdelamar/akka-persistence-demo) to save the cron jobs in a database
+and easily continue cron execution after a sudden reboot, JVM crash or power outage.
